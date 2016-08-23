@@ -1,2 +1,2 @@
 # CompositeWithDecorator
-A Combination of the Coposite with the Decorator Pattern 
+A Combination of the Composite with the Decorator Pattern 
