@@ -10,7 +10,7 @@ Composite::Composite():m_children(new QList<Component *>())
 Composite::~Composite()
 {
     delete m_children;
-    delete m_lastDecorator;
+    delete m_firstDecorator;
 }
 
 void Composite::addComponent(Component *component)
@@ -18,10 +18,28 @@ void Composite::addComponent(Component *component)
     m_children->append(component);
 }
 
+QList<Component *> *Composite::findChildren() const
+{
+    return m_children;
+}
+
 void Composite::aumentarPreco(double percentual)
 {
-    Component *chainDecorators = m_lastDecorator->decorated();
+
     foreach (Component *component, *m_children) {
-        component->aumentarPreco(percentual);
+        if(component->findChildren()->count())
+        {
+            component->aumentarPreco(percentual);
+        }
+        else
+        {
+            m_firstDecorator->lastDecorated()->setDecorated(component);
+            m_firstDecorator->aumentarPreco(percentual);
+        }
     }
+}
+
+void Composite::setFirstDecorator(Decorator *firstDecorator)
+{
+    m_firstDecorator = firstDecorator;
 }

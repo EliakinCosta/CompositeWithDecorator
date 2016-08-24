@@ -26,4 +26,12 @@ Component *Decorator::decorated() const
     return m_decorated;
 }
 
+Decorator *Decorator::lastDecorated() const
+{
+    Decorator *decorator = dynamic_cast<Decorator *>(this->decorated());
+    while(decorator->decorated())
+         decorator = dynamic_cast<Decorator *>(decorator->decorated());
+    return decorator;
+}
+
 
