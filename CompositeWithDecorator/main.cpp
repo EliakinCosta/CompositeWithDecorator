@@ -10,20 +10,19 @@ int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
 
-    Composite *paiDeTodos = new Composite;
+    Component *paiDeTodos = new Composite;
     Component *cereais = new Composite;
     Component *laticinios = new Composite;
-    Component *arroz = new Arroz(2.5);
+    Component *arroz = new Arroz(2.0);
 
     paiDeTodos->addComponent(cereais);
-    paiDeTodos->addComponent(laticinios);
     cereais->addComponent(arroz);
 
     //cadeia
     Decorator *twitter = new TwitterDecorator;
     Decorator *log = new LogDecorator;
     log->setDecorated(twitter);
-    paiDeTodos->setFirstDecorator(log);
+    cereais->setFirstDecorator(log);
 
     paiDeTodos->aumentarPreco(0.15);
 

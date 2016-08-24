@@ -1,6 +1,6 @@
 #include "decorator.h"
 
-Decorator::Decorator()
+Decorator::Decorator():m_decorated(0)
 {
 
 }
@@ -23,15 +23,17 @@ void Decorator::setDecorated(Component *component)
 
 Component *Decorator::decorated() const
 {
-    return m_decorated;
+    if(m_decorated)
+        return m_decorated;
+    return 0;
 }
 
-Decorator *Decorator::lastDecorated() const
+Decorator *Decorator::lastDecorated(Decorator *decorator) const
 {
-    Decorator *decorator = dynamic_cast<Decorator *>(this->decorated());
-    while(decorator->decorated())
-         decorator = dynamic_cast<Decorator *>(decorator->decorated());
-    return decorator;
+    Decorator *decorator_temp = decorator;
+    while(decorator_temp->decorated()!=0)
+         decorator_temp = dynamic_cast<Decorator *>(decorator->decorated());
+    return decorator_temp;
 }
 
 

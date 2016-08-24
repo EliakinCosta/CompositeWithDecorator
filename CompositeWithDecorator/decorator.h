@@ -10,7 +10,7 @@ public:
     virtual void aumentarPreco(double percentual);
     void setDecorated(Component *component);
     Component *decorated() const;
-    Decorator *lastDecorated() const;
+    Decorator *lastDecorated(Decorator *decorator) const;
 protected:
     Decorator();
 private:

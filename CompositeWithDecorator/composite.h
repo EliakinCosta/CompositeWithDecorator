@@ -13,10 +13,9 @@ public:
     virtual void addComponent(Component *component);
     virtual void aumentarPreco(double percentual);
     virtual  QList<Component *> * findChildren() const;
-    void setFirstDecorator(Decorator *firstDecorator);
+    virtual bool hasChildren() const;
 private:
     QList<Component *> *m_children;
-    Decorator *m_firstDecorator;
 };
 
 #endif // COMPOSITE_H
