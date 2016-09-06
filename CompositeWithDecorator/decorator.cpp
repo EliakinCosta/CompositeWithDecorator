@@ -1,8 +1,10 @@
 #include "decorator.h"
+#include "composite.h"
+#include <QtGlobal>
 
-Decorator::Decorator():m_decorated(0)
+Decorator::Decorator(Component *component)
 {
-
+    this->setDecorated(component);
 }
 
 Decorator::~Decorator()
@@ -18,22 +20,14 @@ void Decorator::aumentarPreco(double percentual)
 
 void Decorator::setDecorated(Component *component)
 {
+    if(dynamic_cast<Composite *>(component))
+        Q_ASSERT(false);
     m_decorated = component;
 }
 
 Component *Decorator::decorated() const
 {
-    if(m_decorated)
-        return m_decorated;
-    return 0;
-}
-
-Decorator *Decorator::lastDecorated(Decorator *decorator) const
-{
-    Decorator *decorator_temp = decorator;
-    while(decorator_temp->decorated()!=0)
-         decorator_temp = dynamic_cast<Decorator *>(decorator->decorated());
-    return decorator_temp;
+   return m_decorated;
 }
 
 

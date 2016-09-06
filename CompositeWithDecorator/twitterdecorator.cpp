@@ -2,7 +2,7 @@
 #include <decorator.h>
 #include <QDebug>
 
-TwitterDecorator::TwitterDecorator()
+TwitterDecorator::TwitterDecorator(Component *decorated):Decorator(decorated)
 {
 
 }

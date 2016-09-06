@@ -10,10 +10,11 @@ class Composite: public Component
 public:
     Composite();
     virtual ~Composite();
-    virtual void addComponent(Component *component);
+    virtual void addChild(Component *component);
     virtual void aumentarPreco(double percentual);
     virtual  QList<Component *> * findChildren() const;
-    virtual bool hasChildren() const;
+    static void setDecorator(Decorator *decorator);
+    static Decorator *m_decorator;
 private:
     QList<Component *> *m_children;
 };

@@ -3,10 +3,12 @@
 
 #include <decorator.h>
 
+class Component;
+
 class LogDecorator : public Decorator
 {
 public:
-    LogDecorator();
+    LogDecorator(Component *decorated = 0);
     virtual ~LogDecorator(){}
     virtual void aumentarPreco(double percentual);
 };

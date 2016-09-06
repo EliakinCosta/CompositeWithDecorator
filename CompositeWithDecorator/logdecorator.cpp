@@ -2,7 +2,7 @@
 #include <decorator.h>
 #include <QDebug>
 
-LogDecorator::LogDecorator()
+LogDecorator::LogDecorator(Component *decorated):Decorator(decorated)
 {
 
 }

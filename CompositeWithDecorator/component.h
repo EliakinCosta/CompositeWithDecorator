@@ -8,16 +8,12 @@ class Decorator;
 class Component
 {
 public:
-    Component();
-    virtual ~Component();
-    virtual void addComponent(Component *component);
+    virtual ~Component(){}
+    virtual void addChild(Component *component);
     virtual QList<Component *> *findChildren() const;
-    virtual bool hasChildren() const;
     virtual void aumentarPreco(double percentual) = 0;
-    virtual Decorator *firstDecorator() const;
-    virtual void setFirstDecorator(Decorator *firstDecorator);
-private:
-    Decorator *m_firstDecorator;
+protected:
+    Component();
 };
 
 #endif // COMPONENT_H

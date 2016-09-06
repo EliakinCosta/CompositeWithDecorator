@@ -15,7 +15,8 @@ SOURCES += main.cpp \
     composite.cpp \
     decorator.cpp \
     logdecorator.cpp \
-    twitterdecorator.cpp
+    twitterdecorator.cpp \
+    queijo.cpp
 
 HEADERS += \
     component.h \
@@ -23,4 +24,5 @@ HEADERS += \
     composite.h \
     decorator.h \
     logdecorator.h \
-    twitterdecorator.h
+    twitterdecorator.h \
+    queijo.h
